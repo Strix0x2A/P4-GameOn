@@ -70,7 +70,6 @@ class Validator {
 
 	// Assign a checker according to the key passed 
 	assignChecker(key, form) {
-		console.log(form[key]);
 		if (key === "first" || key === "last") {
 			return () => this.checkName(form, key);
 		}

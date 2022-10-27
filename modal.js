@@ -48,7 +48,7 @@ formStrInput.forEach(
 // validate
 formReserve.addEventListener("submit", validate);
 function validate(event) {
-	let success = false;
+	let success = true;
 	let reserve = event.target;
 	
 	event.preventDefault();
