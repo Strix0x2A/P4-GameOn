@@ -1,13 +1,12 @@
 import Validator from "./Validator.js";
 
-
-
 // #region DOM Elements
 const topNav = document.querySelector("#myTopnav");
+const navBtn = document.querySelectorAll(".main-navbar>a");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeBtn = document.querySelectorAll(".close");
-const finishBtn = document.querySelector(`.form-validated-text+.btn-submit.button`);
+const finishBtn = document.querySelector(".form-validated-text+.btn-submit.button");
 const formReserve = document.querySelector("form");
 const formStrInput = document.querySelectorAll(".text-control");
 const formRadioInput = document.querySelector("[name='location']");
@@ -17,13 +16,21 @@ const formCheckInput = document.querySelector("#checkbox1");
 // #region Nav
 function editNav(nav) {
 	if (nav.className === "topnav") {
-		nav.classList.replace("responsive");
+		nav.classList.add("responsive");
 	} else {
-		nav.classList.replace("topnav");
+		nav.classList.remove("responsive");
+	}
+}
+
+function setActive(btn) {
+	navBtn.forEach((btn) => btn.classList.remove("active"));
+	if (!btn.classList.contains("active")) {
+		btn.classList.add("active");
 	}
 }
 
 topNav.addEventListener("click", editNav(topNav));
+navBtn.forEach((btn) => btn.addEventListener("click", setActive));
 // #endregion
 
 // #region MODAL FORM

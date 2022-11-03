@@ -73,49 +73,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-}
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -528,7 +485,6 @@ input[data-error]::after {
 
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
@@ -564,7 +520,55 @@ footer {
   margin: 0 20px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+
+  .main-navbar {
+    display: none;
+    /* width: 80vw;
+    height: 100vh;
+    margin-top: 30px;
+    overflow-y: hidden;
+    position: absolute;
+    z-index: 2; */
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    margin-right: 20px;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
