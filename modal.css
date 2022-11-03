@@ -273,6 +273,10 @@ input {
   font-size: 0.7rem;
 }
 
+.after-check {
+  width: 100%;
+}
+
 .visible {
   display: inline;
 }

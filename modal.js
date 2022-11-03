@@ -1,21 +1,29 @@
 import Validator from "./Validator.js";
 
-function editNav() {
-	var x = document.getElementById("myTopnav");
-	if (x.className === "topnav") {
-		x.classList.replace("responsive");
-	} else {
-		x.classList.replace("topnav");
-	}
-}
+
 
 // #region DOM Elements
+const topNav = document.querySelector("#myTopnav");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeBtn = document.querySelectorAll(".close");
 const finishBtn = document.querySelector(`.form-validated-text+.btn-submit.button`);
 const formReserve = document.querySelector("form");
 const formStrInput = document.querySelectorAll(".text-control");
+const formRadioInput = document.querySelector("[name='location']");
+const formCheckInput = document.querySelector("#checkbox1");
+// #endregion
+
+// #region Nav
+function editNav(nav) {
+	if (nav.className === "topnav") {
+		nav.classList.replace("responsive");
+	} else {
+		nav.classList.replace("topnav");
+	}
+}
+
+topNav.addEventListener("click", editNav(topNav));
 // #endregion
 
 // #region MODAL FORM
@@ -44,6 +52,8 @@ const validator = new Validator();
 formStrInput.forEach(
 	(input) => input.addEventListener("input", validator.assignChecker(input.id, reserve))
 );
+formRadioInput.addEventListener("input", validator.assignChecker(formRadioInput.name, reserve))
+formCheckInput.addEventListener("input", validator.assignChecker(formCheckInput.id, reserve))
 
 // validate
 formReserve.addEventListener("submit", validate);
@@ -53,11 +63,13 @@ function validate(event) {
 	
 	event.preventDefault();
 
-	success = validator.checkName(reserve, "first") && success;
-	success = validator.checkName(reserve, "last") && success;
-	success = validator.checkMail(reserve, "email") && success;
-	success = validator.checkDate(reserve, "birthdate") && success;
-	success = validator.checkNumber(reserve, "quantity") && success;
+	success = validator.check(reserve, "first") && success;
+	success = validator.check(reserve, "last") && success;
+	success = validator.check(reserve, "email") && success;
+	success = validator.check(reserve, "birthdate") && success;
+	success = validator.check(reserve, "quantity") && success;
+	success = validator.check(reserve, "location") && success;
+	success = validator.check(reserve, "checkbox1") && success;
 
 	if (success) {
 		document

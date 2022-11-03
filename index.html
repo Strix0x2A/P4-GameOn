@@ -25,7 +25,7 @@
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <a href="javascript:void(0);" class="icon">
           <i class="fa fa-bars"></i>
         </a>
       </div>
@@ -126,13 +126,13 @@
                   max="99"
                 />
                 <div class="error-msg">
-                  Merci de saisir une valeur numérique.
+                  Merci de saisir une valeur numérique positive.
                 </div>
               </div>
               <p class="text-label">
                 À quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData">
+              <div id="location" class="formData">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -200,6 +200,9 @@
                   Portland
                 </label>
               </div>
+              <div class="after-check error-msg">
+                Vous devez saisir une destination.
+              </div>
               <div class="formData">
                 <input
                   name="conditions"
@@ -209,8 +212,13 @@
                   checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
-                  <span class="checkbox-icon"></span>
-                  J'ai lu et accepté les conditions d'utilisation.
+                  <div id="terms-of-use">
+                    <span class="checkbox-icon"></span>
+                    J'ai lu et accepté les conditions d'utilisation.
+                  </div>
+                  <div class="after-check error-msg">
+                    Vous devez accepter les conditions d'utilisation.
+                  </div>
                 </label>
                 <br />
                 <input
