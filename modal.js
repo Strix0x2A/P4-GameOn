@@ -63,7 +63,6 @@ formRadioInput.addEventListener("input", validator.assignChecker(formRadioInput.
 formCheckInput.addEventListener("input", validator.assignChecker(formCheckInput.id, reserve))
 
 // validate
-formReserve.addEventListener("submit", validate);
 function validate(event) {
 	let success = true;
 	let reserve = event.target;
@@ -86,4 +85,6 @@ function validate(event) {
 	}
 	return success;
 }
+
+formReserve.addEventListener("submit", validate);
 // #endregion

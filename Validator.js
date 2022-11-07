@@ -11,7 +11,7 @@ class Validator {
 	};
 	// #endregion
 
-	// #region Errors: css handlers
+	// #region Errors: css handlers on input and displaying error msg
 	#assignError(form, key) {
 		if (key === "checkbox1") {
 			document.querySelector(`#terms-of-use+.error-msg`).classList.add("visible");
@@ -41,7 +41,7 @@ class Validator {
 
 	// #region Validators
 	#validateName(input) {
-		return /^[a-zA-Z\u00C0-\u00FF]*$/.test(input.value)
+		return /^[a-zA-Z \-\u00C0-\u00FF]*$/.test(input.value)
 			&& input.value.length >= 2;
 	}
 
