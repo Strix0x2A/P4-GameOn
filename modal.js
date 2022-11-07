@@ -2,14 +2,18 @@ import Validator from "./Validator.js";
 
 // #region DOM Elements
 const topNav = document.querySelector("#myTopnav");
-const navBtn = document.querySelectorAll(".main-navbar>a");
+const navMenu = document.querySelector(".main-navbar");
+const navBtn = document.querySelectorAll("a.nav-elem");
+const closeNav = document.querySelector("a.icon");
+
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeBtn = document.querySelectorAll(".close");
+
 const finishBtn = document.querySelector(".form-validated-text+.btn-submit.button");
 const formReserve = document.querySelector("form");
 const formStrInput = document.querySelectorAll(".text-control");
-const formRadioInput = document.querySelector("[name='location']");
+const formRadioInput = document.querySelectorAll("[name='location']");
 const formCheckInput = document.querySelector("#checkbox1");
 // #endregion
 
@@ -24,13 +28,28 @@ function editNav(nav) {
 
 function setActive(btn) {
 	navBtn.forEach((btn) => btn.classList.remove("active"));
-	if (!btn.classList.contains("active")) {
+	console.log("oups");
+	if (btn && btn.classList && !btn.classList.contains("active")) {
 		btn.classList.add("active");
 	}
 }
 
 topNav.addEventListener("click", editNav(topNav));
 navBtn.forEach((btn) => btn.addEventListener("click", setActive));
+
+function toggleNav(nav) {
+
+	if (!nav.classList.contains("hidden")) {
+		nav.classList.add("hidden");
+	} else {
+		nav.classList.remove("hidden");
+	}
+}
+
+closeNav.addEventListener("click", () => {
+	toggleNav(navMenu);
+	console.log(closeNav);
+});
 // #endregion
 
 // #region MODAL FORM
@@ -55,12 +74,14 @@ finishBtn.addEventListener("click", closeModal);
 // #region FORM
 const validator = new Validator();
 
-// onChange
+// onChange: removing error style and toggling error msg display
 formStrInput.forEach(
-	(input) => input.addEventListener("input", validator.assignChecker(input.id, reserve))
+	(input) => input.addEventListener("input", validator.assignChecker(input.name, reserve))
 );
-formRadioInput.addEventListener("input", validator.assignChecker(formRadioInput.name, reserve))
-formCheckInput.addEventListener("input", validator.assignChecker(formCheckInput.id, reserve))
+formRadioInput.forEach(
+	(input) => addEventListener("input", validator.assignChecker(input.name, reserve))
+);
+formCheckInput.addEventListener("input", validator.assignChecker(formCheckInput.id, reserve));
 
 // validate
 function validate(event) {

@@ -41,7 +41,7 @@ class Validator {
 
 	// #region Validators
 	#validateName(input) {
-		return /^[a-zA-Z \-\u00C0-\u00FF]*$/.test(input.value)
+		return /^[a-zA-Z\' \-\u00C0-\u00FF]*$/.test(input.value)
 			&& input.value.length >= 2;
 	}
 
@@ -59,7 +59,6 @@ class Validator {
 	}
 
 	#validateRadio(input) {
-		console.log(input.value);
 		return input.value;
 	}
 
@@ -70,7 +69,6 @@ class Validator {
 
 	// #region Checker
 	check(form, key) {
-		console.log(key, form[key]);
 		if (!this.#functionAssignation[key](form[key])) {
 			this.#assignError(form, key);
 			return false;

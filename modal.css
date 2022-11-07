@@ -57,7 +57,7 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
+.nav-elem:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
@@ -228,6 +228,10 @@ input {
   margin: 0;
   color: red;
   font-size: 0.7rem;
+}
+
+#terms-of-use {
+  width: 100%;
 }
 
 .after-check {
@@ -528,7 +532,10 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+  }
+
+  .main-navbar > a.icon {
+    z-index: 3;
   }
 
   .main-navbar {
@@ -554,6 +561,7 @@ footer {
   
   .topnav.responsive {
     position: relative;
+    overflow: visible;
   }
 
   .topnav.responsive .icon {
@@ -567,6 +575,26 @@ footer {
     display: block;
     text-align: left;
     margin-right: 20px;
+  }
+  
+  .main-navbar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+  }
+
+  .main-navbar.hidden > .nav-elem {
+    display: none;
+  }
+  
+  .main-navbar > a.icon {
+    z-index: 3;
+  }
+
+  .nav-elem {
+    z-index: 2;
+    position: relative;
   }
 
   .hero-section {
