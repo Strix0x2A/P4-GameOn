@@ -527,10 +527,6 @@ footer {
     align-items: center;
   }
 
-  /* .topnav a {
-    display: none;
-  } */
-
   .topnav a.icon {
     float: right;
     display: block;
@@ -594,9 +590,6 @@ footer {
   }
   
   .main-navbar {
-    /* background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
     position: absolute;
     top: 0px;
     right: 0px;

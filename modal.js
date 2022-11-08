@@ -103,6 +103,7 @@ function validate(event) {
 			.querySelector(".modal-body.modal-body-hidden")
 			.classList.remove("modal-body-hidden");
 		reserve.classList.add("modal-body-hidden");
+		reserve.submit();
 	}
 	return success;
 }
